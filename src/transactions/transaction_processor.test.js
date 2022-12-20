@@ -1,6 +1,6 @@
-const processTransactions = require("./transaction_processor");
+// const processTransactions = require("./transaction_processor");
 
-// import { processTransactions } from "./transaction_processor.mjs";
+import { processTransactions } from "./transaction_processor";
 
 describe('processTransactions', () => {
     test("check transaction processing when empty", () => {

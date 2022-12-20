@@ -1,3 +1,5 @@
+export {processTransactions};
+
 const processTransactions = (transactions) => {
 
     if(!transactions) {
@@ -17,4 +19,4 @@ const processTransactions = (transactions) => {
     return sortedKeys.reduce((result, key)=>result = [ ...result, (`${key} ${txCount[key]}`)], []);
 }
 
-module.exports = processTransactions;
+// module.exports = processTransactions;
