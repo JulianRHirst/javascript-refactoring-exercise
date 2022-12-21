@@ -7,14 +7,11 @@ const processTransactions = (transactions) => {
     }
 
     // txCount[transaction] = frequency of transaction in the original transactions array
-    const txCount  = transactions.reduce((allTransactions, transaction) => {
-        const countTransaction = allTransactions[transaction] ?? 0;
-        return { ...allTransactions, [transaction]: countTransaction + 1, };
-    }, {});
+    const txCounter  = transactions.reduce((allTransactions, transaction) => { return {...allTransactions, [transaction]: (allTransactions[transaction] ?? 0) + 1}}, {});
     
     // sortedKeys = sorted array of keys from txCount
-    const sortedKeys = Object.keys(txCount).sort((itemOne, itemTwo) => txCount[itemTwo] - txCount[itemOne] || itemOne > itemTwo || -(itemOne < itemTwo))
+    const sortedKeys = Object.entries(txCounter).sort(([transaction1, frequency1], [transaction2, frequency2]) => frequency2 - frequency1 || transaction1 > transaction2 || -(transaction1 < transaction2)  );
 
     // return array of strings in format '<transaction> <frequency>'
-    return sortedKeys.reduce((result, key)=>result = [ ...result, (`${key} ${txCount[key]}`)], []);
+    return sortedKeys.map(([key, frequency])=> `${key} ${frequency}`);
 }
