@@ -1,5 +1,3 @@
-// const processTransactions = require("./transaction_processor");
-
 import { processTransactions } from "./transaction_processor";
 
 describe('processTransactions', () => {

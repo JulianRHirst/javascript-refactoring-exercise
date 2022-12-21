@@ -18,5 +18,3 @@ const processTransactions = (transactions) => {
     // return array of strings in format '<transaction> <frequency>'
     return sortedKeys.reduce((result, key)=>result = [ ...result, (`${key} ${txCount[key]}`)], []);
 }
-
-// module.exports = processTransactions;
